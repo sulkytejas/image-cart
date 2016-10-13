@@ -17,23 +17,35 @@ class CartViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    var total = 0.0
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         orders = Orders.readOrdersFromArchive()
-       
+        
+        if let orders = orders {
+            
+            for order in orders  {
+                
+                total += Double((order.product?.price!)!)
+                
+            }
+        }
+        
+        print(total)
         
         
-       
     }
-
+   
     
 
     // MARK: - Table view data source
@@ -41,24 +53,46 @@ class CartViewController: UITableViewController {
   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
+        //let order = orders?[indexPath.row]
+        
+       
+        
         return orders?.count ?? 0
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath)
         
         
-        let order = orders?[indexPath.row]
+         let order = orders?[indexPath.row]
+        
+         let prices = [order?.product?.price]
+//
+//        
+//        print("in table view")
+//        for price in prices  {
+//            total += Double(price!)
+//            
+//        }
+//        
+//       
+//        print (total)
+       
         
         cell.textLabel?.text = order?.product?.name
         
-          return cell
+       
+        return cell
 
-   
+    
 
     }
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+    
         if editingStyle == .delete {
             // Delete the row from the data source
            orders?.remove(at: indexPath.row)
@@ -85,7 +119,8 @@ class CartViewController: UITableViewController {
         return true
     }
     */
+   
 
-    
+ 
 
 }

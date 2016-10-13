@@ -36,6 +36,8 @@ class ProductViewController: UIViewController {
             return
         }
         
+       
+        
         let alertController = UIAlertController(title: "Saved to the Cart", message: "Your item was saved to the cart with the price of \(price)", preferredStyle: .alert)
         
       
@@ -45,6 +47,8 @@ class ProductViewController: UIViewController {
         let order = Order()
         order.order_id = 1
         order.product = product
+        
+        print(order.product?.price)
         
         var orders = Orders.readOrdersFromArchive()
         orders?.append(order)

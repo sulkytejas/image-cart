@@ -23,22 +23,22 @@ class ProductsTableViewController: UITableViewController {
         product1.name = "1970 Wall Street"
         product1.cellImage = "image-cell1"
         product1.productImage = "phone-fullscreen1"
-        product1.price = 3000
+        product1.price = 30
         
         product2.name = "1937 Fulton Street"
         product2.cellImage = "image-cell2"
         product2.productImage = "phone-fullscreen2"
-        product2.price = 4000
+        product2.price = 40
         
         product3.name = "1920 Nassau Street"
         product3.cellImage = "image-cell3"
         product3.productImage = "phone-fullscreen3"
-        product3.price = 1500
+        product3.price = 15
         
         product4.name = "1947 Freedom Strrugle"
         product4.cellImage = "image-cell4"
         product4.productImage = "phone-fullscreen4"
-        product4.price = 900000
+        product4.price = 90
 
         
         
@@ -67,8 +67,8 @@ class ProductsTableViewController: UITableViewController {
             }
             
         }
-                    return cell
-        
+        return cell
+    
     
        
     }

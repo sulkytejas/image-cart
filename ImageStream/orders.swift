@@ -31,7 +31,8 @@ class Orders: NSObject , NSCoding {
     }
     
     class func readOrdersFromArchive() -> [Order]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: archiveFilePath()) as? [Order]
+        //return NSKeyedUnarchiver.unarchiveObject(withFile: archiveFilePath()) as? [Order]
+        return NSKeyedUnarchiver.unarchiveObject(withFile: archiveFilePath()) as? [Order] ?? [Order]()
     }
     
     class func saveOrdersToArchive(orders: [Order]) -> Bool {
